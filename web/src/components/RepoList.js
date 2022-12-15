@@ -10,13 +10,18 @@ export default function RepoList() {
       const sorted = res.data.sort((a, b) => {
         return b.created_at - a.created_at;
       });
-      return setRepo(sorted);
+      setRepo(sorted);
     });
   };
 
   useEffect(() => {
     fetchRepo();
   }, []);
+
+  const filterLanguage = (language) => {
+    const filtered = repo.filter((f) => f.language === language);
+    return setRepo(filtered);
+  };
 
   const items = repo.map((item, index) => {
     const { name, language, description, forksCount } = item;
@@ -29,6 +34,9 @@ export default function RepoList() {
           description={description}
           forksCount={forksCount}
         />
+        <button onClick={() => filterLanguage(language)}>
+          Filter by language
+        </button>
       </div>
     );
   });
