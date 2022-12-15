@@ -24,7 +24,7 @@ export default function RepoList() {
   };
 
   const items = repo.map((item, index) => {
-    const { name, language, description, forksCount } = item;
+    const { name, language, description, forks_count } = item;
 
     return (
       <div key={index}>
@@ -32,7 +32,7 @@ export default function RepoList() {
           name={name}
           language={language}
           description={description}
-          forksCount={forksCount}
+          forksCount={forks_count}
         />
         <button onClick={() => filterLanguage(language)}>
           Filter by language
