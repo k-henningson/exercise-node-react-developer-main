@@ -1,7 +1,11 @@
 export default function RepoItem(props) {
   return (
     <div
-      onClick={() => alert('Div is clickable')}
+      onClick={() => {
+        alert(`Commit date: ${props.name}
+      Author: ${props.name}
+      Message: ${props.name}`);
+      }}
       style={{ border: '1px solid black' }}
     >
       <h2>Name: {props.name}</h2>
