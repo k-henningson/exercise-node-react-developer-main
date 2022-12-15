@@ -7,7 +7,10 @@ export default function RepoList() {
 
   const fetchRepo = function () {
     return axios.get('/repos').then((res) => {
-      return setRepo(res.data);
+      const sorted = res.data.sort((a, b) => {
+        return b.created_at - a.created_at;
+      });
+      return setRepo(sorted);
     });
   };
 
