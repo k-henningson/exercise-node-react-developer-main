@@ -11,6 +11,8 @@ repos.get('/', async (req, res) => {
   const response = await axios.get(
     'https://api.github.com/users/silverorange/repos'
   );
-  const result = response.data.filter((repository) => repository.fork === false);
+  const result = response.data.filter(
+    (repository) => repository.fork === false
+  );
   res.json(result);
 });
